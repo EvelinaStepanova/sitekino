@@ -1,0 +1,404 @@
+/* Заголовок страницы "Актеры фильма" */
+.actors__title {
+    font-size: 40px;
+}
+
+/* Блок поиска актеров */
+.actors__search {
+    /* Включаем flex, чтобы элементы внутри удобно располагались в строку */
+    display: flex;
+    /* Расстояние между элементами внутри блока поиска */
+    gap: 14px;
+    /* Нижний внешний отступ, чтобы отделить поиск от следующего блока */
+    margin-bottom: 34px;
+}
+
+/* Поле ввода для поиска актера */
+.actors__search-input {
+    /* Поле занимает всё свободное место в строке */
+    flex: 1;
+    /* Внутренние отступы: сверху/снизу 16px, слева/справа 18px */
+    padding: 16px 18px;
+    height: 24px;
+    border: 1px solid var(--color-accent);
+    border-radius: 18px;
+    /* Фон поля */
+    background: var(--color-bg-section);
+    color: var(--color-text-secondary);
+    font-size: 16px;
+
+    /* Убираем стандартную обводку браузера при клике */
+    outline: none;
+}
+
+/* Блок с историей просмотренных актеров */
+.actors__history {
+    /* Отступ снизу, чтобы история не прилипала к списку актеров */
+    margin-bottom: 33px;
+}
+
+/* Заголовок истории */
+.actors__history-title {
+    /* Отступ снизу от заголовка до карточек истории */
+    margin-bottom: 18px;
+    font-size: 28px;
+}
+
+/* Список карточек истории */
+.actors__history-list {
+    /* Располагаем карточки в строку */
+    display: flex;
+    /* Расстояние между карточками */
+    gap: 20px;
+    /* Разрешаем перенос карточек на новую строку */
+    flex-wrap: wrap;
+}
+
+/* Одна карточка актера в истории */
+.actors__history-card {
+    /* Фиксированная ширина карточки */
+    width: 120px;
+    /* Минимальная высота, чтобы карточки были одинаковыми */
+    min-height: 210px;
+    /* Убираем стандартную рамку */
+    border: none;
+    border-radius: 14px;
+
+    /* Обрезаем всё, что выходит за скругленные углы */
+    overflow: hidden;
+    /* Фон карточки */
+    background: var(--color-bg-section);
+    /* Тень карточки */
+    box-shadow: var(--shadow-card);
+    cursor: pointer;
+
+    /* Включаем flex внутри карточки */
+    display: flex;
+    /* Располагаем фото и имя сверху вниз */
+    flex-direction: column;
+}
+
+/* Картинка внутри карточки истории */
+.actors__history-card img {
+    /* Картинка занимает всю ширину карточки */
+    width: 100%;
+    /* Фиксированная высота картинки */
+    height: 150px;
+    /* Картинка красиво заполняет область и обрезается при необходимости */
+    object-fit: cover;
+    /* Запрещаем картинке сжиматься */
+    flex-shrink: 0;
+}
+
+/* Имя актера в карточке истории */
+.actors__history-card span {
+    /* Делаем span flex-контейнером */
+    display: flex;
+    /* Центрируем текст по вертикали */
+    align-items: center;
+    /* Центрируем текст по горизонтали */
+    justify-content: center;
+    /* Занимает всё оставшееся место после картинки */
+    flex: 1;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Основной список актеров */
+.actors__list {
+    /* Включаем CSS Grid */
+    display: grid;
+    /* Создаем 5 одинаковых колонок */
+    grid-template-columns: repeat(5, 1fr);
+    /* Расстояние между карточками */
+    gap: 24px;
+}
+
+/* Карточка актера */
+.actor-card {
+    /* Обрезаем содержимое по границам карточки */
+    overflow: hidden;
+    border-radius: 18px;
+    background: var(--color-bg-section);
+    box-shadow: var(--shadow-card);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Карточка актера при наведении */
+.actor-card:hover {
+    box-shadow: var(--shadow-card-hover);
+}
+
+/* Фото актера */
+.actor-card__photo {
+    /* Фото занимает всю ширину карточки */
+    width: 100%;
+    /* Фиксированная высота фото */
+    height: 280px;
+    /* Фото заполняет блок и красиво обрезается */
+    object-fit: cover;
+}
+
+/* Текстовая часть карточки */
+.actor-card__content {
+    padding: 16px;
+}
+
+/* Имя актера */
+.actor-card__name {
+    /* Минимальная высота нужна, чтобы карточки были ровнее */
+    min-height: 44px;
+    margin-bottom: 14px;
+    font-size: 18px;
+}
+
+/* Кнопка "Подробнее" */
+.actor-card__button {
+    /* Кнопка занимает всю ширину карточки */
+    width: 100%;
+    padding: 12px;
+    /* Рамка сначала прозрачная */
+    border: 1px solid transparent;
+    border-radius: 14px;
+    /* Цвет рамки */
+    border-color: var(--color-border-accent-hover);
+    /* Прозрачный фон */
+    background: transparent;
+    color: var(--color-bg);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Шаблон карточки скрываем */
+.actor-card--template {
+    /* Эта карточка нужна только как заготовка для JS */
+    display: none;
+}
+
+/* Затемнение для модального окна */
+.actor-modal {
+    /* Фиксируем окно поверх всей страницы */
+    position: fixed;
+    /* Растягиваем блок на весь экран */
+    inset: 0;
+    /* Поднимаем выше других элементов */
+    z-index: 2000;
+    /* По умолчанию модальное окно скрыто */
+    display: none;
+    /* Внутренние отступы от краев экрана */
+    padding: 20px;
+    /* Полупрозрачный черный фон */
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Активное модальное окно */
+.actor-modal.active {
+    /* Показываем окно */
+    display: flex;
+    /* Центрируем содержимое по вертикали */
+    align-items: center;
+    /* Центрируем содержимое по горизонтали */
+    justify-content: center;
+}
+
+/* Белый блок внутри модального окна */
+.actor-modal__content {
+    /* Нужно для позиционирования кнопки закрытия */
+    position: relative;
+    /* Ширина занимает всё доступное место */
+    width: 100%;
+    /* Но не больше 950px */
+    max-width: 950px;
+    /* Максимальная высота — 90% высоты экрана */
+    max-height: 90vh;
+    /* Если контента много, появляется вертикальная прокрутка */
+    overflow-y: auto;
+    padding: 32px;
+    border-radius: 22px;
+    background: var(--color-bg-section);
+}
+
+/* Кнопка закрытия модального окна */
+.actor-modal__close {
+    /* Абсолютно позиционируем кнопку внутри .actor-modal__content */
+    position: absolute;
+    /* Отступ сверху */
+    top: 14px;
+    /* Отступ справа */
+    right: 18px;
+    /* Убираем рамку */
+    border: none;
+    /* Прозрачный фон */
+    background: transparent;
+    /* Размер крестика */
+    font-size: 36px;
+    cursor: pointer;
+}
+
+/* Информация об актере внутри модального окна */
+.actor-modal__info {
+    /* Включаем grid */
+    display: grid;
+    /* Первая колонка — фото 280px, вторая — текст */
+    grid-template-columns: 280px 1fr;
+    /* Расстояние между фото и текстом */
+    gap: 28px;
+}
+
+/* Общие стили для оберток фото */
+.actor-card__photo-wrap,
+.actor-modal__photo-wrap {
+    /* Обертка занимает всю доступную ширину */
+    width: 100%;
+    /* Серый фон виден, если фото не загрузилось */
+    background: gray;
+    /* Обрезаем лишние части изображения */
+    overflow: hidden;
+}
+
+/* Обертка фото в карточке */
+.actor-card__photo-wrap {
+    /* Фиксированная высота */
+    height: 280px;
+}
+
+/* Фото в карточке */
+.actor-card__photo {
+    /* Занимает всю ширину */
+    width: 100%;
+    /* Занимает всю высоту обертки */
+    height: 100%;
+    /* Красиво заполняет область */
+    object-fit: cover;
+}
+
+/* Обертка фото в модальном окне */
+.actor-modal__photo-wrap {
+    /* Минимальная высота фото */
+    min-height: 360px;
+    border-radius: 18px;
+}
+
+/* Фото в модальном окне */
+.actor-modal__photo {
+    /* Занимает всю ширину */
+    width: 100%;
+    /* Занимает всю высоту */
+    height: 100%;
+    /* Красиво обрезается и заполняет блок */
+    object-fit: cover;
+}
+
+/* Имя актера в модальном окне */
+.actor-modal__name {
+    margin-bottom: 20px;
+    font-size: 36px;
+}
+
+/* Абзацы в текстовой части модального окна */
+.actor-modal__text p {
+    margin-bottom: 18px;
+}
+
+/* Подзаголовки внутри модального окна */
+.actor-modal__text h3 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+/* Шаблон внутри модального окна скрываем */
+.actor-modal__template {
+    /* Этот блок будет использоваться как заготовка для JS */
+    display: none;
+}
+
+/* Адаптив для экранов до 992px */
+@media (max-width: 992px) {
+
+    /* Список актеров становится в 3 колонки */
+    .actors__list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Фото в модальном окне становится уже */
+    .actor-modal__info {
+        grid-template-columns: 220px 1fr;
+    }
+}
+
+/* Адаптив для экранов до 768px */
+@media (max-width: 768px) {
+
+    /* Поиск перестраивается в колонку */
+    .actors__search {
+        flex-direction: column;
+    }
+
+    /* Список актеров становится в 2 колонки */
+    .actors__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* В модальном окне фото и текст идут друг под другом */
+    .actor-modal__info {
+        grid-template-columns: 1fr;
+    }
+
+    /* Ограничиваем ширину фото */
+    .actor-modal__photo {
+        max-width: 260px;
+    }
+
+    /* Уменьшаем внутренние отступы модального окна */
+    .actor-modal__content {
+        padding: 24px;
+    }
+
+    /* Уменьшаем имя актера */
+    .actor-modal__name {
+        font-size: 28px;
+    }
+
+    /* Уменьшаем блок фото */
+    .actor-modal__photo-wrap {
+        max-width: 260px;
+        min-height: 320px;
+    }
+}
+
+/* Адаптив для телефонов до 480px */
+@media (max-width: 480px) {
+
+    /* Список актеров становится в одну колонку */
+    .actors__list {
+        grid-template-columns: 1fr;
+    }
+
+    /* Уменьшаем заголовок страницы */
+    .actors__title {
+        font-size: 32px;
+    }
+
+    /* Уменьшаем заголовок истории */
+    .actors__history-title {
+        font-size: 24px;
+    }
+
+    /* Делаем модальное окно компактнее */
+    .actor-modal__content {
+        padding: 20px;
+    }
+
+    /* Уменьшаем и чуть смещаем крестик закрытия */
+    .actor-modal__close {
+        top: 8px;
+        right: 12px;
+        font-size: 32px;
+    }
+
+    /* Уменьшаем высоту фото в модальном окне */
+    .actor-modal__photo-wrap {
+        min-height: 280px;
+    }
+}

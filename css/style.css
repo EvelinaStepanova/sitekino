@@ -1,0 +1,1167 @@
+/* Подключаем корневой селектор :root */
+:root {
+    /* Основной цвет фона сайта */
+    --color-bg: #141414;
+    /* Фон hero на случай, если картинка не загрузится */
+    --color-hero-bg: #fbc276;
+    /* Основной цвет фона секция */
+    --color-bg-section: #ffffff;
+    /* Дополнительный тёмный цвет для карточек, иконок и отдельных блоков */
+    --color-surface-dark: #1b1b1b;
+    /* Основной цвет текста */
+    --color-text-main: #ffffff;
+    /* Основной цвет секций */
+    --color-text-section: #1e1e1e;
+    /* Приглушённый цвет текста */
+    --color-text-muted: #aaaaaa;
+    /* Второстепенный цвет текста */
+    --color-text-secondary: #666666;
+    /* цвет текста в hero */
+    --color-hero-text: #3A2E2A;
+
+    /* Акцентный цвет сайта */
+    --color-accent: #ffb300;
+
+
+    /* Полупрозрачный акцентный цвет для границ при наведении */
+    --color-border-accent-hover: rgba(255, 179, 0, 0.4);
+    /* Полупрозрачный фон для кнопок */
+    --color-button-bg: rgba(255, 255, 255, 0.04);
+    /* Цвет отключенной кнопки */
+    --color-disabled: #cccccc;
+
+    /* Тень для шапки сайта */
+    --shadow-header: 0 8px 24px rgba(0, 0, 0, 0.35);
+    /* Тень для мобильного меню */
+    --shadow-mobile-menu: 0 10px 30px rgba(0, 0, 0, 0.5);
+    /* Тень кнопки hero */
+    --shadow-hero-button: 0 4px 4px rgba(0, 0, 0, 0.25);
+    /* Тень карточки */
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.08);
+    /* Тень карточки при наведении */
+    --shadow-card-hover: 0 14px 36px rgba(0, 0, 0, 0.14);
+}
+
+body {
+    font-family: "Inter", Arial, sans-serif;
+}
+
+/* ================= CONTAINER ================= */
+
+/* Класс container нужен для ограничения ширины контента */
+.container {
+    /* Контейнер занимает всю доступную ширину */
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ================= HEADER ================= */
+
+/* Стили для шапки сайта */
+.header {
+    /* Делаем шапку "липкой" */
+    position: sticky;
+    /* Прилипает к верхней границе окна */
+    top: 0;
+    z-index: 1000;
+    background: var(--color-bg);
+    box-shadow: var(--shadow-header);
+}
+
+/* Внутренний контейнер шапки */
+.header__container {
+    /* Включаем flex для удобного расположения логотипа, меню и кнопок */
+    display: flex;
+    /* Выравниваем элементы по вертикали по центру */
+    align-items: center;
+    /* Распределяем элементы по ширине */
+    justify-content: space-between;
+    gap: 24px;
+    min-height: 80px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    /* position: relative нужен, чтобы мобильное меню с absolute позиционировалось относительно этого контейнера */
+    position: relative;
+}
+
+/* Ссылка-логотип */
+.header__logo {
+    /* Делаем ссылку строчно-блочным flex-элементом */
+    display: inline-flex;
+    /* Выравниваем содержимое по центру по вертикали */
+    align-items: center;
+    /* Запрещаем логотипу сжиматься */
+    flex-shrink: 0;
+    /* Добавляем плавную анимацию трансформации */
+    transition: transform 0.3s ease;
+}
+
+.header__logo:hover {
+    /* Немного увеличиваем логотип */
+    transform: scale(1.03);
+}
+
+/* Стили для картинки внутри логотипа */
+.header__logo img {
+    width: 80px;
+    height: auto;
+    display: block;
+    /* object-fit помогает корректно вписывать изображение */
+    object-fit: contain;
+}
+
+/* Навигация в шапке */
+.header__nav {
+    /* Элемент может растягиваться и занимать свободное место */
+    flex-grow: 1;
+    /* Включаем flex */
+    display: flex;
+    /* Центрируем меню по горизонтали */
+    justify-content: center;
+}
+
+/* Список пунктов меню */
+.header__menu {
+    display: flex;
+    /* Выравниваем пункты по вертикали */
+    align-items: center;
+    gap: 18px;
+}
+
+/* Ссылка меню */
+.header__item-link {
+    /* Делаем ссылку flex-элементом */
+    display: inline-flex;
+    /* Выравнивание содержимого по вертикали */
+    align-items: center;
+    /* Выравнивание содержимого по горизонтали */
+    justify-content: center;
+    padding: 12px 18px;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--color-text-main);
+    /* Фон прозрачный */
+    background: transparent;
+    /* Плавная анимация цвета и смещения */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.header__item-link:hover {
+    color: var(--color-accent);
+    /* Немного поднимаем ссылку вверх */
+    transform: translateY(-2px);
+}
+
+/* Блок с кнопками справа */
+.header__actions {
+    display: flex;
+    /* Выравниваем элементы по центру по вертикали */
+    align-items: center;
+    gap: 12px;
+    /* Запрещаем блоку сжиматься */
+    flex-shrink: 0;
+}
+
+/* Общие стили для кнопки темы и кнопки бургера */
+.header__theme-button,
+.header__burger {
+    width: 46px;
+    height: 46px;
+    /* Прозрачная рамка */
+    border: 1px solid transparent;
+    border-radius: 14px;
+    background: var(--color-button-bg);
+    /* Включаем flex для центрирования содержимого */
+    display: inline-flex;
+    /* Центрирование по вертикали */
+    align-items: center;
+    /* Центрирование по горизонтали */
+    justify-content: center;
+    cursor: pointer;
+    /* Плавная анимация рамки и движения */
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Стили при наведении на кнопки */
+.header__theme-button:hover,
+.header__burger:hover {
+    /* Подсвечиваем рамку */
+    border-color: var(--color-border-accent-hover);
+    /* Немного поднимаем кнопку */
+    transform: translateY(-2px);
+}
+
+/* Стили для картинки внутри кнопки темы */
+.header__theme-button img {
+    width: 22px;
+    height: 22px;
+    display: block;
+    /* Корректное вписывание */
+    object-fit: contain;
+}
+
+/* === БУРГЕР === */
+/* Стили именно для кнопки бургера */
+.header__burger {
+    /* По умолчанию бургер скрыт */
+    display: none;
+    /* Располагаем линии в колонку */
+    flex-direction: column;
+    /* Центрируем по горизонтали */
+    align-items: center;
+    /* Центрируем по вертикали */
+    justify-content: center;
+    gap: 4px;
+}
+
+/* Линия внутри бургера */
+.header__burger-line {
+    width: 20px;
+    height: 2px;
+    background: var(--color-accent);
+    /* Делаем линию блочной */
+    display: block;
+}
+
+/* === МОБИЛЬНОЕ МЕНЮ === */
+/* Сам блок мобильного меню */
+.header__mobile-menu {
+    /* Абсолютное позиционирование */
+    position: absolute;
+    /* Располагаем сразу под шапкой */
+    top: 100%;
+    /* Прижимаем к правому краю */
+    right: 0;
+    border-radius: 12px;
+    padding: 16px;
+    min-width: 200px;
+    box-shadow: var(--shadow-mobile-menu);
+    /* Делаем меню невидимым */
+    opacity: 0;
+    /* Запрещаем взаимодействие мышью */
+    pointer-events: none;
+    /* Сдвигаем меню чуть вверх */
+    transform: translateY(-10px);
+    /* Добавляем плавную анимацию */
+    transition: 0.3s;
+    background: var(--color-bg);
+}
+
+/* Состояние, когда меню открыто */
+.header__mobile-menu.active {
+    /* Меню становится видимым */
+    opacity: 1;
+    /* Разрешаем клики */
+    pointer-events: auto;
+    /* Возвращаем меню на место */
+    transform: translateY(0);
+}
+
+/* Список ссылок мобильного меню */
+.header__mobile-list {
+    /* Располагаем элементы колонкой */
+    display: flex;
+    /* Направление сверху вниз */
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Ссылки мобильного меню */
+.header__mobile-list a {
+    color: var(--color-text-main);
+    font-size: 16px;
+}
+
+/* Стили ссылок мобильного меню при наведении */
+.header__mobile-list a:hover {
+    color: var(--color-accent);
+}
+
+/* ================= MAIN ================= */
+
+.main {
+    /* Позволяем main занимать всё доступное пространство между header и footer */
+    flex: 1;
+    background: var(--color-bg-section);
+    color: var(--color-text-section);
+}
+
+/* Общий стиль заголовков секций */
+.title {
+    margin-bottom: 48px;
+    font-size: 48px;
+    font-weight: bold;
+    color: var(--color-text-section);
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    background: url("../assets/images/hero.png");
+    /* Позиция картинки (справа по центру) */
+    background-position: right center;
+    /* Растягиваем фон так, чтобы он закрывал весь блок */
+    background-size: cover;
+    /* Запрещаем повторение фоновой картинки */
+    background-repeat: no-repeat;
+    /* Цвет фона (на случай если картинка не загрузится) */
+    background-color: var(--color-hero-bg);
+    /* Делаем высоту hero не меньше высоты экрана */
+    min-height: 100vh;
+    /* Включаем flex для вертикального выравнивания */
+    display: flex;
+    /* Выравниваем содержимое hero по центру по вертикали */
+    align-items: center;
+}
+
+/* .hero__container {
+    display: flex;
+    align-items: center;
+    gap: 43px;
+} */
+
+/* Обращаемся к текстовому блоку внутри hero */
+.hero__content {
+    /* Ограничиваем максимальную ширину текстового блока */
+    max-width: 693px;
+
+    /* Включаем flex-раскладку */
+    display: flex;
+
+    /* Располагаем элементы сверху вниз */
+    flex-direction: column;
+
+    /* Добавляем расстояние между заголовком, текстом и кнопкой */
+    gap: 43px;
+}
+
+/* Обращаемся к главному заголовку hero */
+.hero__title {
+    /* Задаём размер заголовка */
+    font-size: 48px;
+
+    /* Делаем заголовок жирным */
+    font-weight: bold;
+
+    /* Задаём цвет текста */
+    color: var(--color-hero-text);
+}
+
+/* Обращаемся к подзаголовку hero */
+.hero__subtitle {
+    /* Задаём размер текста */
+    font-size: 28px;
+
+    /* Задаём высоту строки */
+    line-height: 34px;
+
+    /* Задаём цвет текста */
+    color: var(--color-hero-text);
+}
+
+/* Обращаемся к кнопке в hero */
+.hero__cta {
+    /* Не растягиваем кнопку на всю ширину flex-контейнера */
+    align-self: flex-start;
+
+    /* Делаем ссылку строчно-flex элементом */
+    display: inline-flex;
+
+    /* Центрируем текст кнопки по вертикали */
+    align-items: center;
+
+    /* Центрируем текст кнопки по горизонтали */
+    justify-content: center;
+
+    /* Добавляем внутренние отступы кнопки */
+    padding: 24px 45px;
+
+    /* Скругляем углы кнопки */
+    border-radius: 14px;
+
+    /* Задаём фон кнопки */
+    background: var(--color-accent);
+
+    /* Задаём цвет текста кнопки */
+    color: var(--color-text-main);
+
+    /* Задаём размер текста кнопки */
+    font-size: 26px;
+
+    /* Делаем текст кнопки жирным */
+    font-weight: bold;
+
+    /* Добавляем плавное изменение положения и прозрачности */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+
+    /* Добавляем тень кнопке */
+    box-shadow: var(--shadow-hero-button);
+}
+
+/* Обращаемся к кнопке hero при наведении */
+.hero__cta:hover {
+    /* Немного поднимаем кнопку вверх */
+    transform: translateY(-2px);
+
+    /* Делаем кнопку чуть прозрачнее */
+    opacity: 0.9;
+}
+
+/* Обращаемся к общему классу секций */
+.section {
+    /* Добавляем верхний отступ секции */
+    padding-top: 48px;
+
+    /* Добавляем нижний отступ секции */
+    padding-bottom: 30px;
+}
+
+/* Обращаемся к списку фильмов */
+.movies__list {
+    /* Включаем CSS Grid для карточек */
+    display: grid;
+
+    /* Создаём 4 одинаковые колонки */
+    grid-template-columns: repeat(4, 1fr);
+
+    /* Добавляем расстояние между карточками */
+    gap: 28px;
+}
+
+/* Обращаемся к карточке фильма */
+.movie-card {
+    /* Включаем flex внутри карточки */
+    display: flex;
+
+    /* Располагаем содержимое карточки сверху вниз */
+    flex-direction: column;
+
+    /* Задаём фон карточки */
+    background: var(--color-bg-section);
+
+    /* Скругляем углы карточки */
+    border-radius: 18px;
+
+    /* Обрезаем всё, что выходит за границы скруглённой карточки */
+    overflow: hidden;
+
+    /* Добавляем тень карточке */
+    box-shadow: var(--shadow-card);
+
+    /* Добавляем плавность для движения и тени */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Обращаемся к карточке фильма при наведении */
+.movie-card:hover {
+    /* Поднимаем карточку вверх */
+    transform: translateY(-6px);
+
+    /* Усиливаем тень при наведении */
+    box-shadow: var(--shadow-card-hover);
+}
+
+/* Обращаемся к постеру фильма */
+.movie-card__poster {
+    /* Растягиваем постер на всю ширину карточки */
+    width: 100%;
+
+    /* Задаём фиксированную высоту постера */
+    height: 360px;
+
+    /* Обрезаем изображение так, чтобы оно красиво заполнило область */
+    object-fit: cover;
+}
+
+/* Обращаемся к текстовому содержимому карточки */
+.movie-card__content {
+    /* Добавляем внутренние отступы */
+    padding: 18px;
+
+    /* Включаем flex для содержимого карточки */
+    display: flex;
+
+    /* Располагаем элементы внутри карточки сверху вниз */
+    flex-direction: column;
+
+    /* Растягиваем контентную часть на доступное пространство */
+    flex: 1;
+
+    /* Добавляем расстояние между элементами */
+    gap: 12px;
+}
+
+/* Обращаемся к названию фильма */
+.movie-card__title {
+    /* Фиксируем минимальную высоту названия */
+    min-height: 48px;
+}
+
+/* Обращаемся к дополнительной информации о фильме */
+.movie-card__info {
+    /* Добавляем нижний внешний отступ */
+    margin-bottom: 8px;
+
+    /* Задаём размер текста */
+    font-size: 16px;
+
+    /* Задаём второстепенный цвет текста */
+    color: var(--color-text-secondary);
+}
+
+/* Обращаемся к нижней части карточки */
+.movie-card__bottom {
+    /* Включаем flex для года и рейтинга */
+    display: flex;
+
+    /* Разносим год и рейтинг по разным краям */
+    justify-content: space-between;
+
+    /* Выравниваем год и рейтинг по вертикали */
+    align-items: center;
+
+    /* Прижимаем нижнюю часть карточки к низу */
+    margin-top: auto;
+}
+
+/* Обращаемся к году фильма */
+.movie-card__year {
+    /* Задаём размер текста */
+    font-size: 16px;
+
+    /* Задаём второстепенный цвет текста */
+    color: var(--color-text-secondary);
+}
+
+/* Обращаемся к рейтингу фильма */
+.movie-card__rating {
+    /* Добавляем внутренние отступы */
+    padding: 6px 10px;
+
+    /* Скругляем углы рейтинга */
+    border-radius: 10px;
+
+    background: var(--color-button-bg);
+    color: var(--color-text-section);
+
+    /* Делаем текст рейтинга жирным */
+    font-weight: 700;
+}
+
+.movie-card__button {
+    display: inline-block;
+    text-align: center;
+    margin-top: 16px;
+    padding: 10px 16px;
+
+    border-radius: 12px;
+
+    /* вместо заливки — обводка */
+    border: 2px solid var(--color-accent);
+    background: transparent;
+
+    color: var(--color-accent);
+
+    font-size: 15px;
+    font-weight: 600;
+
+    transition: all 0.3s ease;
+}
+
+.movie-card__button:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+}
+
+/* Обращаемся к блоку пагинации */
+.movies__pagination {
+    /* Включаем flex для кнопок */
+    display: flex;
+
+    /* Центрируем кнопки по горизонтали */
+    justify-content: center;
+
+    /* Добавляем расстояние между кнопками */
+    gap: 20px;
+
+    /* Добавляем отступ сверху */
+    margin-top: 42px;
+}
+
+/* Обращаемся к кнопкам пагинации */
+.movies__pagination-button {
+    /* Задаём ширину кнопки */
+    width: 54px;
+
+    /* Задаём высоту кнопки */
+    height: 54px;
+
+    /* Делаем кнопку круглой */
+    border-radius: 50%;
+
+    /* Добавляем акцентную рамку */
+    border: 2px solid var(--color-accent);
+
+    /* Включаем flex для центрирования стрелки */
+    display: flex;
+
+    /* Центрируем стрелку по вертикали */
+    align-items: center;
+
+    /* Центрируем стрелку по горизонтали */
+    justify-content: center;
+
+    /* Делаем фон прозрачным */
+    background: transparent;
+
+    /* Задаём цвет стрелки */
+    color: var(--color-accent);
+
+    /* Задаём размер стрелки */
+    font-size: 24px;
+
+    /* Делаем стрелку жирной */
+    font-weight: 700;
+
+    /* Показываем курсор-руку */
+    cursor: pointer;
+
+    /* Добавляем плавную анимацию всех изменений */
+    transition: all 0.3s ease;
+}
+
+/* Обращаемся к кнопке пагинации при наведении */
+.movies__pagination-button:hover {
+    /* Задаём акцентный фон */
+    background: var(--color-accent);
+
+    /* Меняем цвет стрелки на тёмный */
+    color: var(--color-bg);
+
+    /* Немного поднимаем кнопку */
+    transform: translateY(-2px);
+}
+
+/* Обращаемся к отключённой кнопке пагинации */
+.movies__pagination-button:disabled {
+    /* Меняем цвет рамки на серый */
+    border-color: var(--color-disabled);
+
+    /* Меняем цвет стрелки на серый */
+    color: var(--color-disabled);
+
+    /* Показываем, что кнопка недоступна */
+    cursor: not-allowed;
+
+    /* Убираем смещение кнопки */
+    transform: none;
+}
+
+
+/* ================= ABOUT ================= */
+
+/* Общий блок */
+.about {
+    background: var(--color-bg-section);
+}
+
+/* Заголовок уже есть через .title */
+
+/* Описание */
+.about__description {
+    /* Ограничиваем ширину текста, чтобы его было удобно читать */
+    max-width: 700px;
+    margin-bottom: 40px;
+
+    font-size: 20px;
+    line-height: 1.6;
+    /* Цвет текста (второстепенный) */
+    color: var(--color-text-secondary);
+}
+
+/* Блок со статистикой */
+.about__stats {
+    display: grid;
+    /* 3 колонки */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Одна карточка */
+.about__stat {
+    padding: 28px;
+    border-radius: 18px;
+    background: var(--color-bg-section);
+    box-shadow: var(--shadow-card);
+    /* Включаем flex внутри карточки */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover эффект */
+.about__stat:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+}
+
+/* Число */
+.about__stat-number {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+/* Текст */
+.about__stat-text {
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--color-text-secondary);
+}
+
+
+/* ================= SUBSCRIBE ================= */
+
+/* Общий блок */
+.subscribe {
+    background: var(--color-hero-bg);
+
+}
+
+.subscribe .container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Описание */
+.subscribe__description {
+    font-size: 24px;
+    margin-bottom: 48px;
+    font-weight: bold;
+    color: var(--color-text-main);
+}
+
+/* Форма */
+.subscribe__form {
+    /* Занимает всю ширину контейнера */
+    width: 100%;
+    display: flex;
+    gap: 12px;
+}
+
+/* Поле ввода */
+.subscribe__form-email {
+    flex: 1;
+    /* занимает всё свободное пространство */
+    padding: 16px 18px;
+    border-radius: 14px;
+    /* Прозрачная рамка (чтобы не было скачка при фокусе) */
+    border: 2px solid transparent;
+    background: var(--color-bg-section);
+    color: var(--color-text-section);
+    font-size: 16px;
+    /* Убираем стандартный outline браузера */
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+/* Фокус на поле */
+.subscribe__form-email:focus {
+    border-color: var(--color-accent);
+}
+
+/* Кнопка */
+.subscribe__form-button {
+    padding: 16px 26px;
+    border-radius: 14px;
+    border: none;
+    background: var(--color-accent);
+    color: var(--color-bg-section);
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Hover кнопки */
+.subscribe__form-button:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Скрытый label (для доступности) */
+.visually-hidden {
+    /* Убираем элемент из визуального отображения */
+    position: absolute;
+    /* Минимальные размеры */
+    width: 1px;
+    height: 1px;
+    /* Убираем из потока */
+    margin: -1px;
+    /* Обрезаем содержимое */
+    overflow: hidden;
+}
+
+/* ================= FOOTER ================= */
+/* Общие стили подвала */
+.footer {
+    background: var(--color-bg);
+    color: var(--color-text-main);
+    padding-top: 24px;
+}
+
+/* Верхняя часть подвала */
+.footer__top {
+    padding-bottom: 18px;
+}
+
+/* Контейнер верхней части подвала */
+.footer__top-container {
+    /* Используем grid */
+    display: grid;
+    /* Три колонки: слева, по центру, справа */
+    grid-template-columns: 1fr auto 1fr;
+    /* Выравниваем элементы по верхнему краю */
+    align-items: start;
+    gap: 40px;
+}
+
+/* Левая часть подвала */
+.footer__left {
+    display: flex;
+    /* Выравниваем содержимое по верхнему краю */
+    align-items: flex-start;
+}
+
+/* Ссылка-логотип в футере */
+.footer__logo {
+    /* Делаем flex-элементом */
+    display: inline-flex;
+    /* Выравниваем содержимое */
+    align-items: center;
+}
+
+/* Логотип в футере */
+.footer__logo img {
+    width: 72px;
+    /* Высота автоматическая */
+    height: auto;
+    display: block;
+}
+
+/* Центральная часть футера */
+.footer__center {
+    display: flex;
+    /* Центрируем содержимое */
+    justify-content: center;
+}
+
+/* Список ссылок в футере */
+.footer__menu {
+    display: flex;
+    /* Размещаем элементы в колонку */
+    flex-direction: column;
+    /* Выравниваем по центру */
+    align-items: center;
+    gap: 12px;
+}
+
+/* Ссылки футера */
+.footer__link {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--color-text-main);
+    /* Плавная анимация цвета */
+    transition: color 0.3s ease;
+}
+
+/* Ссылки футера при наведении */
+.footer__link:hover {
+    color: var(--color-accent);
+}
+
+/* Правая часть футера */
+.footer__right {
+    display: flex;
+    /* Элементы идут сверху вниз */
+    flex-direction: column;
+    /* Прижимаем их к правому краю */
+    align-items: flex-end;
+    gap: 10px;
+}
+
+/* Контакты в футере */
+.footer__contact {
+    font-size: 14px;
+    color: var(--color-text-muted);
+    transition: color 0.3s ease;
+}
+
+/* Контакты при наведении */
+.footer__contact:hover {
+    color: var(--color-accent);
+}
+
+/* Блок соцсетей */
+.footer__socials {
+    display: flex;
+    gap: 10px;
+    margin-top: 4px;
+}
+
+/* Одна иконка соцсети */
+.footer__social-link {
+    width: 34px;
+    height: 34px;
+    /* Прозрачная рамка */
+    border: 1px solid transparent;
+    border-radius: 6px;
+    background: var(--color-surface-dark);
+    display: flex;
+    /* Центрируем по вертикали */
+    align-items: center;
+    /* Центрируем по горизонтали */
+    justify-content: center;
+    /* Плавные эффекты */
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Иконка соцсети при наведении */
+.footer__social-link:hover {
+    /* Подсвечиваем рамку */
+    border-color: var(--color-border-accent-hover);
+    /* Немного поднимаем */
+    transform: translateY(-2px);
+}
+
+/* Картинка внутри иконки соцсети */
+.footer__social-link img {
+    width: 16px;
+    height: 16px;
+    /* Корректное вписывание */
+    object-fit: contain;
+    display: block;
+}
+
+/* Нижняя часть футера */
+.footer__bottom {
+    padding: 14px 0 18px;
+}
+
+/* Контейнер нижней части футера */
+.footer__bottom-container {
+    display: flex;
+    /* Разводим элементы в разные стороны */
+    justify-content: space-between;
+    /* Выравниваем по вертикали */
+    align-items: center;
+    gap: 20px;
+}
+
+/* Ссылка на политику конфиденциальности */
+.footer__policy-link {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    /* Плавная анимация цвета */
+    transition: color 0.3s ease;
+}
+
+/* Политика при наведении */
+.footer__policy-link:hover {
+    color: var(--color-accent);
+}
+
+/* Копирайт */
+.footer__copy {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    text-align: right;
+}
+
+/* ================= АДАПТИВ ================= */
+
+/* Стили для экранов уже 992px и меньше */
+@media (max-width: 992px) {
+
+    /* Уменьшаем логотип в шапке */
+    .header__logo img {
+        width: 70px;
+    }
+
+    /* Уменьшаем расстояние между пунктами меню */
+    .header__menu {
+        gap: 10px;
+    }
+
+    /* Делаем ссылки меню чуть компактнее */
+    .header__item-link {
+        padding: 10px 14px;
+        font-size: 15px;
+    }
+    /* Обращаемся к сетке фильмов */
+    .movies__list {
+        /* Делаем 2 колонки вместо 4 */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Стили для планшетов и телефонов */
+@media (max-width: 768px) {
+
+    /* Немного увеличиваем минимальную высоту шапки */
+    .header__container {
+        min-height: 82px;
+    }
+
+    /* Скрываем обычное меню */
+    .header__nav {
+        display: none;
+    }
+
+    /* Показываем бургер */
+    .header__burger {
+        display: inline-flex;
+    }
+
+    /* Уменьшаем логотип */
+    .header__logo img {
+        width: 64px;
+    }
+
+    .hero {
+        /* Убираем минимальную высоту во весь экран */
+        min-height: auto;
+         /* Добавляем внутренние отступы сверху и снизу */
+        padding: 80px 0;
+        /* Центрируем фоновое изображение */
+        background-position: center;
+    }
+
+    .hero__content {
+         /* Разрешаем занимать всю ширину */
+        max-width: 100%;
+        /* Уменьшаем расстояние между элементами */
+        gap: 24px;
+    }
+    /* Обращаемся к заголовку hero */
+    /* И ко всем заголовкам секций */
+    .hero__title,
+    .title {
+        font-size: 36px;
+    }
+    /* Обращаемся к подзаголовку hero */
+    .hero__subtitle {
+        font-size: 20px;
+        /* Делаем межстрочный интервал удобнее */
+        line-height: 1.4;
+    }
+     /* Обращаемся к кнопке hero */
+    .hero__cta {
+        padding: 18px 32px;
+        font-size: 20px;
+    }
+    /* Обращаемся к сетке фильмов */
+    .movies__list {
+        /* Делаем одну колонку */
+        grid-template-columns: 1fr;
+    }
+    /* Обращаемся к постеру фильма */
+    .movie-card__poster {
+        height: 360px;
+    }
+     /* Обращаемся к блоку статистики */
+    .about__stats {
+         /* Делаем карточки в одну колонку */
+        grid-template-columns: 1fr;
+    }
+    /* Обращаемся к описанию блока "О платформе" */
+    .about__description {
+        font-size: 18px;
+    }
+    /* Обращаемся к форме подписки */
+    .subscribe__form {
+        flex-direction: column;
+    }
+    /* Обращаемся к кнопке формы подписки */
+    .subscribe__form-button {
+        width: 100%;
+        font-size: 20px;
+    }
+     /* Обращаемся к описанию блока подписки */
+    .subscribe__description {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+    /* Обращаемся к контейнеру верхней части футера */
+    /* Перестраиваем футер в одну колонку */
+    .footer__top-container {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+        gap: 24px;
+    }
+
+    /* Центрируем все части футера */
+    .footer__left,
+    .footer__center,
+    .footer__right {
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Нижнюю часть футера тоже делаем вертикальной */
+    .footer__bottom-container {
+        /* Располагаем элементы сверху вниз */
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Выравниваем копирайт по центру */
+    .footer__copy {
+        text-align: center;
+    }
+}
+
+/* Стили для совсем маленьких экранов */
+@media (max-width: 480px) {
+
+    /* Делаем шапку ещё компактнее */
+    .header__container {
+        gap: 12px;
+        min-height: 74px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    /* Ещё уменьшаем логотип */
+    .header__logo img {
+        width: 56px;
+    }
+
+    /* Уменьшаем кнопки темы и бургера */
+    .header__theme-button,
+    .header__burger {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+    }
+    /* Обращаемся к заголовку hero */
+    /* И ко всем заголовкам секций */
+    .hero__title,
+    .title {
+        font-size: 30px;
+    }
+    /* Обращаемся к постеру фильма */
+    .movie-card__poster {
+        height: 360px;
+    }
+    
+    /* Обращаемся ко всем секциям */
+    .section {
+        padding-top: 36px;
+        padding-bottom: 24px;
+    }
+}

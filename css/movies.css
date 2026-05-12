@@ -1,0 +1,365 @@
+/* ================= MOVIE DETAIL ================= */
+
+/* Блок страницы с подробной информацией о фильме */
+.movie-detail {
+    /* Добавляем отступы сверху и снизу */
+    padding: 100px 0;
+}
+
+/* Заголовок страницы фильма */
+.movie-detail__title {
+    margin-bottom: 40px;
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--color-text-section);
+}
+
+/* Основной контейнер с постером и информацией */
+.movie-detail__content {
+    /* Включаем flex-раскладку */
+    display: flex;
+    /* Выравниваем элементы по верхнему краю */
+    align-items: start;
+    /* Распределяем элементы по ширине */
+    justify-content: space-between;
+    gap: 40px;
+}
+
+/* Постер фильма */
+.movie-detail__poster {
+    border-radius: 18px;
+    /* Фиксированная ширина постера */
+    width: 500px;
+    /* Временный серый фон (если нет картинки) */
+    background: gray;
+    /* Обрезаем изображение красиво внутри блока */
+    object-fit: cover;
+}
+
+/* Блок с информацией о фильме */
+.movie-detail__info {
+    /* Ограничиваем максимальную ширину текста */
+    max-width: 800px;
+    color: var(--color-text-section);
+}
+
+/* Описание фильма */
+.movie__desc {
+    margin-bottom: 52px;
+    font-size: 22px;    
+}
+
+/* Жанры фильма */
+.movie__genres {
+    margin-bottom: 55px;
+    font-size: 20px;
+}
+
+/* Блок с фактами (год, страна и т.д.) */
+.movie_facts {
+    /* Включаем flex */
+    display: flex;
+
+    /* Распределяем элементы по ширине */
+    justify-content: space-between;
+
+    /* Выравниваем по вертикали */
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+/* Один элемент факта */
+.movie__fact-item {
+    /* Включаем flex */
+    display: flex;
+
+    /* Располагаем элементы колонкой */
+    flex-direction: column;
+
+    /* Центрируем по горизонтали */
+    align-items: center;
+}
+
+/* Заголовок факта (например "Год") */
+.movie_fact-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    /* Обычная толщина текста */
+    font-weight: 400;
+}
+
+/* Значение факта (например "2024") */
+.movie_fact-text {
+    font-size: 20px;
+}
+
+/* Блок с рейтингом */
+.movie__rating {
+    /* Включаем flex */
+    display: flex;
+
+    /* Распределяем элементы */
+    justify-content: space-between;
+
+    /* Выравниваем по вертикали */
+    align-items: center;
+
+    /* Запрещаем перенос строк */
+    flex-wrap: nowrap;
+    gap: 10px;
+    margin-bottom: 80px;
+}
+
+/* Иконка (например звезда рейтинга) */
+.movie__rating svg {
+    width: 54px;
+    height: 54px;
+    /* Запрещаем сжиматься */
+    flex-shrink: 0;
+}
+
+/* Заголовок блока актёров */
+.movie__actors-title {
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+/* Список актёров */
+.movie__actors-list {
+    display: flex;
+    /* Располагаем колонкой */
+    flex-direction: column;
+}
+
+/* Имя актёра */
+.movie__actors-name {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Ссылка внутри имени актёра */
+.movie__actors-name a {
+    color: var(--color-text-section);
+    transition: color 0.3s ease;
+}
+
+/* При наведении на актёра */
+.movie__actors-name a:hover {
+    color: var(--color-accent);
+}
+
+
+/* Добавь после того как реализуешь карточки фильмов похожих */
+
+/* Начальное состояние карточки (скрыта) */
+.movie-card--fade {
+    /* Делаем прозрачной */
+    opacity: 0;
+    /* Сдвигаем вниз */
+    transform: translateY(30px);
+}
+
+/* Состояние, когда карточка появляется */
+.movie-card--show {
+    /* Делаем видимой */
+    opacity: 1;
+    /* Возвращаем на место */
+    transform: translateY(0);
+}
+
+
+
+/* ================= АДАПТИВ СТРАНИЦЫ ФИЛЬМА ================= */
+
+/* Стили для экранов 992px и меньше */
+@media (max-width: 992px) {
+
+    /* Уменьшаем внутренние отступы блока фильма */
+    .movie-detail {
+        padding: 70px 0;
+    }
+
+    /* Уменьшаем расстояние между постером и информацией */
+    .movie-detail__content {
+        gap: 30px;
+    }
+
+    /* Уменьшаем ширину и высоту постера */
+    .movie-detail__poster {
+        width: 380px;
+        height: 560px;
+    }
+
+    /* Уменьшаем размер описания */
+    .movie__desc {
+        font-size: 22px;
+        margin-bottom: 36px;
+    }
+
+    /* Уменьшаем размер жанров */
+    .movie__genres {
+        font-size: 20px;
+        margin-bottom: 36px;
+    }
+
+    /* Переносим факты, если им не хватает места */
+    .movie_facts {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+
+    /* Уменьшаем заголовки фактов */
+    .movie_fact-title {
+        font-size: 20px;
+    }
+
+    /* Уменьшаем текст фактов */
+    .movie_fact-text {
+        font-size: 20px;
+    }
+
+    /* Уменьшаем расстояние после рейтинга */
+    .movie__rating {
+        margin-bottom: 50px;
+    }
+
+    /* Уменьшаем размер звёзд */
+    .movie__rating svg {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+
+/* Стили для экранов 768px и меньше */
+@media (max-width: 768px) {
+
+    /* Делаем блок фильма вертикальным */
+    .movie-detail__content {
+        flex-direction: column;
+    }
+
+    /* Постер занимает всю доступную ширину */
+    .movie-detail__poster {
+        width: 100%;
+        max-width: 420px;
+        height: 600px;
+    }
+
+    /* Информация занимает всю ширину */
+    .movie-detail__info {
+        max-width: 100%;
+    }
+
+    /* Уменьшаем заголовок фильма */
+    .movie-detail__title {
+        font-size: 34px;
+    }
+
+    /* Уменьшаем описание */
+    .movie__desc {
+        font-size: 20px;
+    }
+
+    /* Уменьшаем жанры */
+    .movie__genres {
+        font-size: 18px;
+    }
+
+    /* Факты располагаются в две строки */
+    .movie_facts {
+        justify-content: flex-start;
+        gap: 24px;
+    }
+
+    /* Уменьшаем звёзды */
+    .movie__rating svg {
+        width: 36px;
+        height: 36px;
+    }
+
+    /* Уменьшаем заголовок актёров */
+    .movie__actors-title {
+        font-size: 22px;
+    }
+
+    /* Уменьшаем имена актёров */
+    .movie__actors-name {
+        font-size: 20px;
+    }
+}
+
+
+/* Стили для экранов 480px и меньше */
+@media (max-width: 480px) {
+
+    /* Делаем отступы блока фильма меньше */
+    .movie-detail {
+        padding: 50px 0;
+    }
+
+    /* Уменьшаем заголовок фильма */
+    .movie-detail__title {
+        font-size: 28px;
+        margin-bottom: 28px;
+    }
+
+    /* Постер делаем ниже, чтобы он не занимал слишком много экрана */
+    .movie-detail__poster {
+        height: 460px;
+    }
+
+    /* Уменьшаем описание */
+    .movie__desc {
+        font-size: 18px;
+        margin-bottom: 28px;
+    }
+
+    /* Уменьшаем жанры */
+    .movie__genres {
+        font-size: 16px;
+        margin-bottom: 28px;
+    }
+
+    /* Факты выстраиваются аккуратной сеткой */
+    .movie_facts {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Центрируем каждый факт */
+    .movie__fact-item {
+        align-items: flex-start;
+    }
+
+    /* Уменьшаем заголовки фактов */
+    .movie_fact-title {
+        font-size: 16px;
+    }
+
+    /* Уменьшаем текст фактов */
+    .movie_fact-text {
+        font-size: 18px;
+    }
+
+    /* Разрешаем звёздам переноситься */
+    .movie__rating {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        margin-bottom: 40px;
+    }
+
+    /* Уменьшаем размер звёзд */
+    .movie__rating svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    /* Уменьшаем заголовок похожих фильмов */
+    .similar-movies__title {
+        font-size: 28px;
+    }
+}

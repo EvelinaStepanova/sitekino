@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Киносайт</title>
+    <meta name="description"
+        content="Киносайт — платформа для поиска популярных фильмов, рейтингов и рекомендаций для просмотра.">
+    <meta name="keywords" content="кино, фильмы, топ 250, рейтинги">
+    <meta property="og:title" content="Киносайт — популярные фильмы и рейтинги">
+    <meta property="og:description" content="Находи популярные фильмы и выбирай кино для просмотра.">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evelinastepanova.github.io/kinosite/">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffb300">
+    
+    <!-- Подключаем файл сброса стилей -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- Подключаем файл шрифтами -->
+    <link rel="stylesheet" href="css/fonts.css">
+    <!-- Подключаем основной файл со стилями -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
+</head>
+
+<body id="top">
+    <!-- Шапка сайта -->
+    <!-- itemscope и itemtype — помогают поисковикам понять, что это организация -->
+    <header class="header" id="header" itemscope itemtype="http://schema.org/WPHeader">
+        <!-- Ограничивающий контейнер (чтобы контент был по центру) -->
+        <div class="container header__container">
+            <!-- Ссылка -->
+            <!-- Логотип, при клике обычно ведет на главную страницу -->
+            <a class="header__logo" href="#">
+                <!-- Картинка логотипа -->
+                <img src="assets/images/logo.png" alt="Логотип сайта Киносайт" itemprop="logo">
+            </a>
+            <!-- Навигация сайта -->
+            <nav class="header__nav" itemscope itemtype="https://schema.org/SiteNavigationElement">
+                <ul class="header__menu">
+                    <li class="header__item" itemprop="name">
+                        <a class="header__item-link" href="top250.html" itemprop="url">Топ 250</a>
+                    </li>
+                    <li class="header__item" itemprop="name">
+                        <a class="header__item-link js-scroll" href="#about" itemprop="url">О платформе</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Блок с кнопками -->
+            <div class="header__actions">
+                <!-- Кнопка переключения темы -->
+                <!-- aria-label — для доступности (читатели экрана) -->
+                <button class="header__theme-button" type="button" aria-label="Переключить тему">
+                    <img src="assets/images/tema.png" alt="Иконка темы">
+                </button>
+
+                <!-- Кнопка бургер-меню -->
+                <button class="header__burger" type="button" aria-label="Открыть меню">
+                    <!-- Три линии бургер-иконки -->
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                </button>
+            </div>
+            <!-- Мобильное меню (скрыто по умолчанию) -->
+            <nav class="header__mobile-menu">
+                <ul class="header__mobile-list">
+                    <li><a href="top250.html">Топ 250</a></li>
+                    <li><a href="#about">О платформе</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Основная часть сайта -->
+    <main class="main">
+        <!-- Первый экран (Hero-блок) -->
+        <section class="hero">
+            <div class="container hero__container">
+                <!-- Блок с текстовым содержимым hero -->
+                <div class="hero__content">
+                    <h1 class="hero__title"> Открой мир кино </h1>
+                    <p class="hero__subtitle">Находи популярные фильмы, изучай рейтинги и выбирай, что посмотреть
+                        сегодня вечером.</p>
+                    <a class="hero__cta" href="#"> Подписаться </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Блок с фильмами -->
+        <section class="movies section">
+            <div class="container">
+                <!-- Заголовок секции -->
+                <h2 class="movies__title title">Популярные фильмы</h2>
+                <!-- Контейнер, куда через JS будут добавляться карточки фильмов -->
+                <div class="movies__list">
+                    <!-- здесь будут карточки фильмов -->
+                </div>
+                <!-- Блок с кнопками пагинации -->
+                <div class="movies__pagination">
+                    <button class="movies__pagination-button movies__pagination-prev" type="button">
+                        <!-- HTML-сущность стрелки влево -->
+                        &#8249;
+                    </button>
+
+                    <button class="movies__pagination-button movies__pagination-next" type="button">
+                        <!-- HTML-сущность стрелки вправо -->
+                        &#8250;
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Блок "О платформе" -->
+        <!-- id="about" — нужен для якорных ссылок (например, прокрутка к блоку) -->
+        <section class="about section" id="about">
+            <div class="container">
+                <!-- Заголовок секции -->
+                <h2 class="about__title title">О платформе</h2>
+                <!-- Описание -->
+                <p class="about__description">Наша платформа помогает быстро находить популярные фильмы, изучать
+                    рейтинги и выбирать, что посмотреть сегодня.</p>
+                <!-- Блок со статистикой -->
+                <div class="about__stats">
+                    <!-- Критерии иконка и описание -->
+                    <div class="about__stat">
+                        <span class="about__stat-number">10 000+</span>
+                        <span class="about__stat-text">фильмов и сериалов в базе</span>
+                    </div>
+
+                    <div class="about__stat">
+                        <span class="about__stat-number">500+</span>
+                        <span class="about__stat-text">подборок по жанрам и настроению</span>
+                    </div>
+
+                    <div class="about__stat">
+                        <span class="about__stat-number">1 млн+</span>
+                        <span class="about__stat-text">пользователей ежемесячно</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Блок подписки -->
+        <section class="subscribe section">
+            <div class="container">
+                <!-- Заголовок -->
+                <h2 class="title"> Получай киноновинки первым</h2>
+                <!-- Описание -->
+                <p class="subscribe__description">Оставь email, чтобы получать подборки фильмов, новости проекта и
+                    рекомендации для просмотра.</p>
+                <!-- Форма подписки -->
+                <form class="subscribe__form">
+                    <!-- Подпись для поля (скрытая, но правильная) -->
+                    <!-- label — подпись для поля ввода -->
+                    <!-- visually-hidden — скрываем визуально, но сохраняем для доступности -->
+                    <!-- for="email" — связывает label с input -->
+                    <label class="visually-hidden" for="email">Email</label>
+
+                    <!-- Поле для ввода email -->
+                    <!-- input — поле для ввода -->
+                    <!-- id="email" — уникальный идентификатор -->
+                    <!-- class — для стилизации -->
+                    <!-- type="email" — браузер сам проверяет формат -->
+                    <!-- name="email" — имя поля (используется при отправке формы) -->
+                    <!-- placeholder — текст-подсказка -->
+                    <!-- aria-label — дополнительная доступность -->
+                    <!-- required — поле обязательно для заполнения -->
+                    <input id="email" class="subscribe__form-email" type="email" name="email"
+                        placeholder="Введите ваш email" aria-label="Введите ваш email" required>
+                    <!-- Кнопка отправки формы -->
+                    <button class="subscribe__form-button" type="submit">Подписаться</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <!-- Подвал сайта -->
+    <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+        <!-- Верхняя часть футера -->
+        <div class="footer__top">
+            <div class="container footer__top-container">
+                <!-- Логотип -->
+                <div class="footer__left">
+                    <a class="footer__logo" href="#">
+                        <img src="assets/images/logo.png" alt="Логотип сайта Киносайт">
+                    </a>
+                </div>
+                <!-- Меню -->
+                <div class="footer__center">
+                    <nav class="footer__nav">
+                        <ul class="footer__menu">
+                            <li class="footer__item" itemprop="name">
+                                <a class="footer__link" href="top250.html" itemprop="url">ТОП-250</a>
+                            </li>
+                            <li class="footer__item" itemprop="name">
+                                <a class="footer__link" href="#" itemprop="url">Форум</a>
+                            </li>
+                            <li class="footer__item" itemprop="name">
+                                <a class="footer__link js-scroll" href="#about" itemprop="url">О платформе</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Контакты -->
+                <div class="footer__right">
+                    <a class="footer__contact" href="mailto:info@kinosite.ru">info@kinosite.ru</a>
+                    <a class="footer__contact" href="tel:+79991234567">+7 (999) 123-45-67</a>
+                    <!-- Социальные сети -->
+                    <div class="footer__socials">
+                        <a class="footer__social-link" href="#">
+                            <img src="assets/images/tg.jpg" alt="Telegram">
+                        </a>
+                        <a class="footer__social-link" href="#">
+                            <img src="assets/icons/VK.com-logo.svg" alt="VK">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Нижняя часть футера -->
+        <div class="footer__bottom">
+            <div class="container footer__bottom-container">
+                <!-- Политика -->
+                <a class="footer__policy-link" href="#">Политика конфиденциальности</a>
+                <!-- Копирайт -->
+                <div class="footer__copy">© 2026 Киносайт. Все права защищены.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+
+</html>

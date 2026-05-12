@@ -1,0 +1,11 @@
+/* ================= ТЁМНАЯ ТЕМА ================= */
+
+body.dark-theme {
+    --color-bg: #0f0f0f;
+    --color-bg-section: #181818;
+    --color-surface-dark: #222222;
+    --color-text-main: #ffffff;
+    --color-text-section: #f5f5f5;
+    --shadow-card: 0 0px 10px rgba(255, 255, 255, 0.25); 
+    --color-text-secondary: #f5f5f5;
+}

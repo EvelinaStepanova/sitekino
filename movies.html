@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="топ 250, лучшие фильмы, рейтинг фильмов, кино, Кинопоиск">
+
+    <meta property="og:title" content="ТОП-250 фильмов — Киносайт">
+    <meta property="og:description"
+        content="Изучай список лучших фильмов из ТОП-250, смотри рейтинги и выбирай кино для просмотра.">
+    <meta property="og:image" content="https://evelinastepanova.github.io/kinosite/assets/images/og-top250.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://evelinastepanova.github.io/kinosite/top250.html">
+
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ffb300">
+
+    <!-- Подключаем файл сброса стилей -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- Подключаем файл шрифтами -->
+    <link rel="stylesheet" href="css/fonts.css">
+    <!-- Подключаем основной файл со стилями -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/theme.css">
+    <!-- Подключаем основной файл со стилями для фильма -->
+    <link rel="stylesheet" href="css/movies.css">
+</head>
+
+<body>
+    <header class="header" id="header" itemscope itemtype="http://schema.org/WPHeader">
+        <div class="container header__container">
+            <a class="header__logo" href="index.html">
+                <img src="assets/images/logo.png" alt="Логотип сайта Киносайт" itemprop="logo">
+            </a>
+            <nav class="header__nav" itemscope itemtype="https://schema.org/SiteNavigationElement">
+                <ul class="header__menu">
+                    <li class="header__item" itemprop="name">
+                        <a class="header__item-link" href="top250.html" itemprop="url">Топ 250</a>
+                    </li>
+                    <li class="header__item" itemprop="name">
+                        <a class="header__item-link js-scroll" href="#about" itemprop="url">О платформе</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header__actions">
+                <button class="header__theme-button" type="button" aria-label="Переключить тему">
+                    <img src="assets/images/tema.png" alt="Иконка темы">
+                </button>
+
+                <button class="header__burger" type="button" aria-label="Открыть меню">
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                    <span class="header__burger-line"></span>
+                </button>
+            </div>
+            <!-- Мобильное меню (скрыто по умолчанию) -->
+            <nav class="header__mobile-menu">
+                <ul class="header__mobile-list">
+                    <li><a href="top250.html">Топ 250</a></li>
+                    <li><a href="#about">О платформе</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="movie-detail section">
+            <div class="container">
+                <h1 class="movie-detail__title">Интерстеллар</h1>
+
+                <div class="movie-detail__content">
+                    <img class="movie-detail__poster" src="#" alt="Постер фильма">
+
+                    <div class="movie-detail__info">
+                        <p class="movie__desc">Фантастический эпос про заканчивающиеся запасы, космические полёты и
+                            парадоксы времени. «Спасение за пределами Земли».
+                        </p>
+
+                        <p class="movie__genres"> Фантастика, драма, приключения
+                        </p>
+
+                        <div class="movie_facts">
+                            <div class="movie__fact-item">
+                                <h3 class="movie_fact-title">Год выпуска</h3>
+                                <p class="movie_fact-text year">2014</p>
+                            </div>
+                            <div class="movie__fact-item">
+                                <h3 class="movie_fact-title">Возраст</h3>
+                                <p class="movie_fact-text age">18+</p>
+                            </div>
+                            <div class="movie__fact-item">
+                                <h3 class="movie_fact-title">Длительность</h3>
+                                <p class="movie_fact-text timing">2 ч 49 мин</p>
+                            </div>
+                            <div class="movie__fact-item">
+                                <h3 class="movie_fact-title">Рейтинг</h3>
+                                <p class="movie_fact-text raiting">9</p>
+                            </div>
+                        </div>
+
+                        <div class="movie__rating">
+                            <svg viewBox="0 0 56 56" width="54" height="54">
+                                <path class="star-fill"
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468Z"
+                                    fill="#ffb300" />
+                                <path
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468ZM28 3.23569L22.4396 20.3467L4.44774 20.3474L19.003 30.9233L13.4439 48.0347L28 37.46L42.5561 48.0347L36.997 30.9233L51.5523 20.3474L33.5604 20.3467L28 3.23569Z"
+                                    fill="none" stroke="#ffb300" stroke-width="2" />
+                            </svg>
+                            <svg viewBox="0 0 56 56" width="54" height="54">
+                                <path class="star-fill"
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468Z"
+                                    fill="#ffb300" />
+                                <path
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468ZM28 3.23569L22.4396 20.3467L4.44774 20.3474L19.003 30.9233L13.4439 48.0347L28 37.46L42.5561 48.0347L36.997 30.9233L51.5523 20.3474L33.5604 20.3467L28 3.23569Z"
+                                    fill="none" stroke="#ffb300" stroke-width="2" />
+                            </svg>
+                            <svg viewBox="0 0 56 56" width="54" height="54">
+                                <path class="star-fill"
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468Z"
+                                    fill="#ffb300" />
+                                <path
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468ZM28 3.23569L22.4396 20.3467L4.44774 20.3474L19.003 30.9233L13.4439 48.0347L28 37.46L42.5561 48.0347L36.997 30.9233L51.5523 20.3474L33.5604 20.3467L28 3.23569Z"
+                                    fill="none" stroke="#ffb300" stroke-width="2" />
+                            </svg>
+                            <svg viewBox="0 0 56 56" width="54" height="54">
+                                <path class="star-fill"
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468Z"
+                                    fill="#ffb300" />
+                                <path
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468ZM28 3.23569L22.4396 20.3467L4.44774 20.3474L19.003 30.9233L13.4439 48.0347L28 37.46L42.5561 48.0347L36.997 30.9233L51.5523 20.3474L33.5604 20.3467L28 3.23569Z"
+                                    fill="none" stroke="#ffb300" stroke-width="2" />
+                            </svg>
+                            <svg viewBox="0 0 56 56" width="54" height="54">
+                                <path class="star-fill"
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468Z"
+                                    fill="#ffb300" />
+                                <path
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468ZM28 3.23569L22.4396 20.3467L4.44774 20.3474L19.003 30.9233L13.4439 48.0347L28 37.46L42.5561 48.0347L36.997 30.9233L51.5523 20.3474L33.5604 20.3467L28 3.23569Z"
+                                    fill="none" stroke="#ffb300" stroke-width="2" />
+                            </svg>
+                            <svg viewBox="0 0 56 56" width="54" height="54">
+                                <path class="star-fill"
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468Z"
+                                    fill="#ffb300" />
+                                <path
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468ZM28 3.23569L22.4396 20.3467L4.44774 20.3474L19.003 30.9233L13.4439 48.0347L28 37.46L42.5561 48.0347L36.997 30.9233L51.5523 20.3474L33.5604 20.3467L28 3.23569Z"
+                                    fill="none" stroke="#ffb300" stroke-width="2" />
+                            </svg>
+                            <svg viewBox="0 0 56 56" width="54" height="54">
+                                <path class="star-fill"
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468Z"
+                                    fill="#ffb300" />
+                                <path
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468ZM28 3.23569L22.4396 20.3467L4.44774 20.3474L19.003 30.9233L13.4439 48.0347L28 37.46L42.5561 48.0347L36.997 30.9233L51.5523 20.3474L33.5604 20.3467L28 3.23569Z"
+                                    fill="none" stroke="#ffb300" stroke-width="2" />
+                            </svg>
+                            <svg viewBox="0 0 56 56" width="54" height="54">
+                                <path class="star-fill"
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468Z"
+                                    fill="#ffb300" />
+                                <path
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468ZM28 3.23569L22.4396 20.3467L4.44774 20.3474L19.003 30.9233L13.4439 48.0347L28 37.46L42.5561 48.0347L36.997 30.9233L51.5523 20.3474L33.5604 20.3467L28 3.23569Z"
+                                    fill="none" stroke="#ffb300" stroke-width="2" />
+                            </svg>
+                            <svg viewBox="0 0 56 56" width="54" height="54">
+                                <path class="star-fill"
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468Z"
+                                    fill="#ffb300" />
+                                <path
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468ZM28 3.23569L22.4396 20.3467L4.44774 20.3474L19.003 30.9233L13.4439 48.0347L28 37.46L42.5561 48.0347L36.997 30.9233L51.5523 20.3474L33.5604 20.3467L28 3.23569Z"
+                                    fill="none" stroke="#ffb300" stroke-width="2" />
+                            </svg>
+                            <svg viewBox="0 0 56 56" width="54" height="54">
+                                <path class="star-fill"
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468Z"
+                                    fill="transparent" />
+                                <path
+                                    d="M34.287 19.3468L54.6296 19.3475L38.1725 31.3052L44.458 50.6525L28 38.696L11.542 50.6525L17.8275 31.3052L1.37042 19.3475L21.7131 19.3468L28 0L34.287 19.3468ZM28 3.23569L22.4396 20.3467L4.44774 20.3474L19.003 30.9233L13.4439 48.0347L28 37.46L42.5561 48.0347L36.997 30.9233L51.5523 20.3474L33.5604 20.3467L28 3.23569Z"
+                                    fill="none" stroke="#ffb300" stroke-width="2" />
+                            </svg>
+
+                        </div>
+
+                        <div class="movie__actors">
+                            <h3 class="movie__actors-title">Актёрский состав</h3>
+                            <ul class="movie__actors-list">
+                                <li class="movie__actors-name">Мэттью Макконахи</li>
+                                <li class="movie__actors-name">Мэттью Макконахи</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="similar-movies section">
+            <div class="container">
+                <h2 class="similar-movies__title title">Фильмы с похожим годом</h2>
+
+                <div class="similar-movies__cards movies__list">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+        <div class="footer__top">
+            <div class="container footer__top-container">
+                <div class="footer__left">
+                    <a class="footer__logo" href="#">
+                        <img src="assets/images/logo.png" alt="Логотип сайта Киносайт">
+                    </a>
+                </div>
+                <div class="footer__center">
+                    <nav class="footer__nav">
+                        <ul class="footer__menu">
+                            <li class="footer__item" itemprop="name">
+                                <a class="footer__link" href="top250.html" itemprop="url">ТОП-250</a>
+                            </li>
+                            <li class="footer__item" itemprop="name">
+                                <a class="footer__link" href="#" itemprop="url">Форум</a>
+                            </li>
+                            <li class="footer__item" itemprop="name">
+                                <a class="footer__link js-scroll" href="#about" itemprop="url">О платформе</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="footer__right">
+                    <a class="footer__contact" href="mailto:info@kinosite.ru">info@kinosite.ru</a>
+                    <a class="footer__contact" href="tel:+79991234567">+7 (999) 123-45-67</a>
+                    <div class="footer__socials">
+                        <a class="footer__social-link" href="#">
+                            <img src="assets/images/tg.jpg" alt="Telegram">
+                        </a>
+                        <a class="footer__social-link" href="#">
+                            <img src="assets/icons/VK.com-logo.svg" alt="VK">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="container footer__bottom-container">
+                <a class="footer__policy-link" href="#">Политика конфиденциальности</a>
+                <div class="footer__copy">© 2026 Киносайт. Все права защищены.</div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/theme.js"></script>
+    <!-- Подключи в конце чтобы работал бургер -->
+    <script src="js/movie.js"></script>
+</body>
+
+</html>
